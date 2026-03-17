@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRZ SNACK | Katalog Keripik Terlengkap</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Lexend:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #0a0a0a;
+            --bg-card: #161616;
+            --primary-red: #e61e2a;
+            --accent-yellow: #fbc531;
+            --accent-blue: #00a8ff;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --nav-bg: rgba(10, 10, 10, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- LOGO STYLE --- */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo-crz {
+            font-family: 'Lexend', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--primary-red);
+        }
+
+        .logo-snack {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: -2px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 7%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        #home h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 15px;
+            max-width: 800px;
+        }
+
+        #home h1 span {
+            color: var(--primary-red);
+        }
+
+        #home p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        /* SHORTCUT BUTTONS */
+        .shortcuts {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-sc {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid #333;
+        }
+
+        .btn-home { background: transparent; color: white; }
+        .btn-produk { background: var(--primary-red); color: white; border: none; }
+        .btn-contact { background: white; color: black; border: none; }
+
+        .btn-sc:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 30, 42, 0.3);
+        }
+
+        /* --- PRODUCT SECTION --- */
+        #produk {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.4s ease;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: #252525;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 4rem;
+        }
+
+        /* Produk Nuansa Keripik Colors */
+        .color-1 { color: #ff9f43; } /* Usus */
+        .color-2 { color: #ee5253; } /* Basreng */
+        .color-3 { color: #feca57; } /* Pisang */
+        .color-4 { color: #54a0ff; } /* Makaroni */
+        .color-5 { color: #1dd1a1; } /* Kripik Kaca */
+        .color-6 { color: #ff9ff3; } /* Kripik Tempe */
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .product-card .price {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .product-card:hover .buy-btn {
+            background: var(--primary-red);
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            padding: 100px 7%;
+            background: #0d0d0d;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 900px;
+            padding: 50px;
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border: 1px solid #222;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-red);
+            transform: rotate(360deg);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .send-btn {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px 7%;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .contact-card { grid-template-columns: 1fr; }
+            #home h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav>
+        <div class="logo-container">
+            <span class="logo-crz">CRZ</span>
+            <span class="logo-snack">snack</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <h1>Snack Renyah <span>Bikin Nagih</span> Setiap Hari.</h1>
+        <p>Temukan berbagai macam keripik kekinian dengan kualitas premium dan rasa yang otentik hanya di CRZ Snack.</p>
+        
+        <div class="shortcuts">
+            <a href="#home" class="btn-sc btn-home">Home</a>
+            <a href="#produk" class="btn-sc btn-produk">Lihat Produk</a>
+            <a href="#contact" class="btn-sc btn-contact">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="produk">
+        <div class="section-title">
+            <h2>Katalog Keripik</h2>
+            <p>Pilih varian keripik favoritmu di bawah ini.</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Keripik Usus -->
+            <div class="product-card">
+                <div class="product-image color-1"><i class="fas fa-bacon"></i></div>
+                <h3>Keripik Usus Krispi</h3>
+                <span class="price">Rp 15.000</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <!-- Basreng -->
+            <div class="product-card">
+                <div class="product-image color-2"><i class="fas fa-fire-alt"></i></div>
+                <h3>Basreng Daun Jeruk</h3>
+                <span class="price">Rp 12.500</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <!-- Kripik Kaca -->
+            <div class="product-card">
+                <div class="product-image color-5"><i class="fas fa-layer-group"></i></div>
+                <h3>Keripik Kaca (Beledag)</h3>
+                <span class="price">Rp 10.000</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <!-- Keripik Pisang -->
+            <div class="product-card">
+                <div class="product-image color-3"><i class="fas fa-apple-whole"></i></div>
+                <h3>Keripik Pisang Lumer</h3>
+                <span class="price">Rp 18.000</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <!-- Makaroni -->
+            <div class="product-card">
+                <div class="product-image color-4"><i class="fas fa-cookie"></i></div>
+                <h3>Makaroni Spiral</h3>
+                <span class="price">Rp 8.000</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+
+            <!-- Kripik Tempe -->
+            <div class="product-card">
+                <div class="product-image color-6"><i class="fas fa-bread-slice"></i></div>
+                <h3>Keripik Tempe Sagu</h3>
+                <span class="price">Rp 13.000</span>
+                <a href="#" class="buy-btn">Beli Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-card">
+            <div class="contact-info">
+                <h3>Ada Pertanyaan? <span>Hubungi CRZ.</span></h3>
+                <p>Kami siap melayani pembelian eceran maupun grosir/reseller seluruh Indonesia.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Nama Lengkap">
+                    <input type="email" placeholder="Email / WhatsApp">
+                    <textarea rows="4" placeholder="Tulis pesanmu di sini..."></textarea>
+                    <button class="send-btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CRZ SNACK Indonesia. Terinspirasi oleh kualitas, disajikan dengan cinta.</p>
+    </footer>
+
+</body>
+</html>
