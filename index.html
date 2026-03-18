@@ -13,6 +13,8 @@
             --primary-red: #e61e2a;
             --accent-yellow: #fbc531;
             --insta-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            --wa-gradient: linear-gradient(45deg, #00ff22, #02aa26);
+            --tt-gradient: linear-gradient(45deg, #0a38ef, #000000, #000000, #000000, #ff0000 );
             --text-main: #ffffff;
             --text-dim: #a0a0a0;
         }
@@ -32,8 +34,8 @@
             z-index: 1000;
             border-bottom: 1px solid #222;
         }
-        .logo { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--primary-red); }
-        .logo span { font-size: 0.7rem; color: #fff; display: block; letter-spacing: 3px; text-transform: uppercase; margin-top: -5px; }
+        .logo { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 2.5rem; color: var(--primary-red); margin-top: -15px; }
+        .logo span { font-size: 0.6rem; color: #fff; display: block; letter-spacing: 3px; text-transform: uppercase; margin-top: -10px; }
         
         .nav-links a { text-decoration: none; color: #fff; margin-left: 25px; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary-red); }
@@ -69,6 +71,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
+            animation: muncul linear; animation-timeline: view(); animation-range: entry 10% cover 40%; 
         }
         .product-card {
             background: var(--bg-card);
@@ -113,6 +116,27 @@
             text-decoration: none;
             color: #fff;
             transition: 0.3s;
+            animation: muncul linear; animation-timeline: view(); animation-range: entry 10% cover 40%;
+        }
+
+        .wa-link-block {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            animation: muncul linear; animation-timeline: view(); animation-range: entry 10% cover 40%;
+        }
+
+        .tt-link-block {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            animation: muncul linear; animation-timeline: view(); animation-range: entry 10% cover 40%;
         }
         
         /* Ikon Lingkaran Besar */
@@ -129,9 +153,51 @@
             box-shadow: 0 10px 25px rgba(204, 35, 102, 0.3);
             transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .wa-icon-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--wa-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 25px rgba(2, 255, 57, 0.3);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .tt-icon-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--tt-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 25px rgba(85, 0, 255, 0.3);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
         
         /* Teks Username di bawah */
         .insta-link-block span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            transition: 0.3s;
+        }
+
+        .wa-link-block span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            transition: 0.3s;
+        }
+
+        .tt-link-block span {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dim);
@@ -147,10 +213,27 @@
             color: #fff;
         }
 
+        .wa-link-block:hover .wa-icon-circle {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(10, 255, 1, 0.5);
+        }
+        .wa-link-block:hover span {
+            color: #fff;
+        }
+
+        .tt-link-block:hover .tt-icon-circle {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(1, 56, 255, 0.5);
+        }
+        .tt-link-block:hover span {
+            color: #fff;
+        }
+
         footer { padding: 50px; text-align: center; color: var(--text-dim); border-top: 1px solid #222; }
 
         @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes muncul { from { transform: translateY(-100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         @media (max-width: 768px) {
             #home { grid-template-columns: 1fr; 
@@ -170,11 +253,11 @@
 <body>
 
     <nav>
-        <div class="logo">CRZ<span>SNACK</span></div>
+        <div class="logo">CRZ<span>&nbsp;SNACK</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#produk">Produk</a>
-            <a href="#feed">Instagram</a>
+            <a href="#produk">Katalog</a>
+            <a href="#feed">Kontak</a>
         </div>
     </nav>
 
@@ -188,54 +271,69 @@
 
     <section id="produk">
         <div class="section-title">
-            <h2>Katalog Keripik</h2>
+            <h2>Katalog Produk</h2>
         </div>
         <div class="product-grid">
             <div class="product-card">
                 <div class="product-image-box color-1"><img src="keripikusus.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Keripik Usus</h3>
                 <span class="price">Rp20.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
             <div class="product-card">
                 <div class="product-image-box color-2"><img src="basreng.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Basreng Daun Jeruk</h3>
                 <span class="price">Rp15.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
             <div class="product-card">
                 <div class="product-image-box color-5"><img src="keripikkaca.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Keripik Kaca</h3>
                 <span class="price">Rp15.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
             <div class="product-card">
                 <div class="product-image-box color-3"><img src="keripikpisang.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Keripik Pisang Coklat</h3>
                 <span class="price">Rp15.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
             <div class="product-card">
                 <div class="product-image-box color-4"><img src="makaroni.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Makaroni Pedas</h3>
                 <span class="price">Rp15.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
             <div class="product-card">
                 <div class="product-image-box color-6"><img src="keripiktempe.png" style="width:100%; height:100%; object-fit:cover;"></div>
                 <h3>Keripik Tempe</h3>
                 <span class="price">Rp15.000/250gr</span>
-                <a href="https://instagram.com/crz.snack" target="_blank" class="buy-btn-insta">Pesan di Instagram</a>
+                <a href="#feed" class="buy-btn-insta">Pesan Sekarang</a>
             </div>
         </div>
     </section>
 
     <section id="feed">
+        <div class="section-title">
+            <h2>Kontak Kami</h2>
+        </div>
         <a href="https://instagram.com/crz.snack" target="_blank" class="insta-link-block">
-            <div class="insta-icon-circle">
+            <div class="insta-icon-circle" style="margin-right: 50px;">
                 <i class="fab fa-instagram"></i>
             </div>
-            <span>crz.snack</span>
+            <span>instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </a>
+        <a href="https://wa.me/+6285648607160" target="_blank" class="wa-link-block">
+            <div class="wa-icon-circle" style="margin-right: 50px;">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <span>whatsapp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </a>
+        <a href="https://www.tiktok.com/@crz..snack?_r=1&_t=ZS-94mrJd6PSFA" target="_blank" class="tt-link-block">
+            <div class="tt-icon-circle">
+                <i class="fab fa-tiktok"></i>
+            </div>
+            <span>tiktok</span>
         </a>
     </section>
 
